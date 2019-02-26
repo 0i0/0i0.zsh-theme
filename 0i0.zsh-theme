@@ -95,7 +95,7 @@ prompt_status() {
   [[ $UID -eq 0 ]] && symbols+="%{%F{yellow}%}$LIGHTNING"
   [[ $(jobs -l | wc -l) -gt 0 ]] && symbols+="%{%F{cyan}%}$GEAR"
 
-  [[ -n "$symbols" ]] && prompt_segment CURRENT_BG default " $symbols "
+  [[ -n "$symbols" ]] && prompt_segment CURRENT_BG default "$symbols "
 }
 
 ## Main prompt
