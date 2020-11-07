@@ -27,21 +27,6 @@ prompt_segment() {
   [[ -n $3 ]] && print -n $3
 }
 
-# End the prompt, closing any open segments
-prompt_end() {
-  print -n "%{%k%}"
-  print -n "%{%f%}"
-  CURRENT_BG=''
-}
-
-# Virtualenv: current working virtualenv
-prompt_virtualenv() {
-  local virtualenv_path="$CONDA_DEFAULT_ENV"
-  if [[ -n $virtualenv_path ]]; then
-    prompt_segment CURRENT_BG 193 "$(basename $virtualenv_path) "
-  fi
-}
-
 ### Prompt components
 # Each component will draw itself, and hide itself if no information needs to be shown
 
@@ -52,6 +37,19 @@ prompt_context() {
   if [[ "$user" != "$DEFAULT_USER" || -n "$SSH_CONNECTION" ]]; then
     prompt_segment CURRENT_BG 111 "%(!.%{%F{yellow}%}.)$user@%m "
   fi
+}
+
+# Virtualenv: current working virtualenv
+prompt_virtualenv() {
+  local virtualenv_path="$CONDA_DEFAULT_ENV"
+  if [[ -n $virtualenv_path ]]; then
+    prompt_segment CURRENT_BG 6 "$(basename $virtualenv_path) "
+  fi
+}
+
+# Dir: current working directory
+prompt_dir() {
+  prompt_segment CURRENT_BG 5 '%~ '
 }
 
 # Git: branch/detached head, dirty status
@@ -79,11 +77,6 @@ prompt_git() {
   fi
 }
 
-# Dir: current working directory
-prompt_dir() {
-  prompt_segment CURRENT_BG 210 '%~ '
-}
-
 # Status:
 # - was there an error
 # - am I root
@@ -96,6 +89,13 @@ prompt_status() {
   [[ $(jobs -l | wc -l) -gt 0 ]] && symbols+="%{%F{cyan}%}$GEAR"
 
   [[ -n "$symbols" ]] && prompt_segment CURRENT_BG default "$symbols "
+}
+
+# End the prompt, closing any open segments
+prompt_end() {
+  print -n "%{%k%}"
+  print -n "%{%f%}"
+  CURRENT_BG=''
 }
 
 ## Main prompt
