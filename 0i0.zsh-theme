@@ -95,7 +95,7 @@ prompt_status() {
 prompt_end() {
   EMOJIS=(😈 💩 👻 💀 🫀 🧠 👅 🤷🏼‍♂️ 🦊 🍼 🦁 🙈 🙉 🙊 🐒 🍑 🍆 💊 💣 💔 🐡 🚬 👑)
   SELECTED_EMOJI=${EMOJIS[$RANDOM % ${#EMOJIS[@]}]};
-  print -n $'\n'$SELECTED_EMOJI' '
+  print -n $'\n'$SELECTED_EMOJI'  '
   print -n "%{%k%}"
   print -n "%{%f%}"
   CURRENT_BG=''
