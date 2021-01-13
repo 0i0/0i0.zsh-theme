@@ -7,4 +7,4 @@ set to ON
 
 this is just my zsh-theme setup
 
-![Screen](https://i.imgur.com/q0YGTNF.png)
+![Screen](https://i.imgur.com/BC9eCbo.png)
