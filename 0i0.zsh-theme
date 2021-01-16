@@ -92,7 +92,7 @@ prompt_status() {
 }
 
 prompt_caret(){
-  EMOJIS=(😈 💩 👻 💀 🫀 🧠 👅 🤷🏼‍♂️ 🦊 🍼 🦁 🙈 🙉 🙊 🐒 🍑 🍆 💊 💣 💔 🐡 🚬 👑)
+  EMOJIS=( 😈 💩 👻 💀 👅 🤷 🦊 🍼 🦁 🙈 🙉 🙊 🐒 🍑 🍆 💊 💣 💔 🐡 🚬 👑 🫀 🧠 )
   SELECTED_EMOJI=${EMOJIS[$RANDOM % ${#EMOJIS[@]}]}
   NEWLINE=$'\n'
   print -n "${NEWLINE}${SELECTED_EMOJI}  "
@@ -100,9 +100,6 @@ prompt_caret(){
 
 # End the prompt, closing any open segments
 prompt_end() {
-  EMOJIS=( 😈 💩 👻 💀 👅 🤷 🦊 🍼 🦁 🙈 🙉 🙊 🐒 🍑 🍆 💊 💣 💔 🐡 🚬 👑 🫀 🧠 )
-  SELECTED_EMOJI=${EMOJIS[$RANDOM % ${#EMOJIS[@]}]};
-  print -n $'\n'$SELECTED_EMOJI'  '
   print -n "%{%k%}"
   print -n "%{%f%}"
   CURRENT_BG=''
