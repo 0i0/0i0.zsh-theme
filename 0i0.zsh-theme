@@ -93,7 +93,7 @@ prompt_status() {
 
 # End the prompt, closing any open segments
 prompt_end() {
-  EMOJIS=(😈 💩 👻 💀 🫀 🧠 👅 🤷🏼‍♂️ 🦊 🍼 🦁 🙈 🙉 🙊 🐒 🍑 🍆 💊 💣 💔 🐡 🚬 👑)
+  EMOJIS=( 😈 💩 👻 💀 👅 🤷 🦊 🍼 🦁 🙈 🙉 🙊 🐒 🍑 🍆 💊 💣 💔 🐡 🚬 👑 🫀 🧠 )
   SELECTED_EMOJI=${EMOJIS[$RANDOM % ${#EMOJIS[@]}]};
   print -n $'\n'$SELECTED_EMOJI'  '
   print -n "%{%k%}"
