@@ -91,6 +91,13 @@ prompt_status() {
   [[ -n "$symbols" ]] && prompt_segment CURRENT_BG default "$symbols "
 }
 
+prompt_caret(){
+  EMOJIS=(😈 💩 👻 💀 🫀 🧠 👅 🤷🏼‍♂️ 🦊 🍼 🦁 🙈 🙉 🙊 🐒 🍑 🍆 💊 💣 💔 🐡 🚬 👑)
+  SELECTED_EMOJI=${EMOJIS[$RANDOM % ${#EMOJIS[@]}]}
+  NEWLINE=$'\n'
+  print -n "${NEWLINE}${SELECTED_EMOJI}  "
+}
+
 # End the prompt, closing any open segments
 prompt_end() {
   EMOJIS=( 😈 💩 👻 💀 👅 🤷 🦊 🍼 🦁 🙈 🙉 🙊 🐒 🍑 🍆 💊 💣 💔 🐡 🚬 👑 🫀 🧠 )
@@ -111,6 +118,7 @@ prompt_agnoster_main() {
   prompt_virtualenv
   prompt_dir
   prompt_git
+  prompt_caret
   prompt_end
 }
 
